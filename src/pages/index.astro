@@ -1,11 +1,117 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ProductCard from '../components/ProductCard.astro';
+import productsData from '../data/products.json';
+import vttData from '../data/vtt_structured.json';
+import { Image } from 'astro:assets';
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+// Use categories from productsData but map them safely.
+const categories = Array.from(new Set(productsData.map(p => p.category)));
+const productsByCategory = categories.reduce((acc, category) => {
+    acc[category] = productsData.filter(p => p.category === category);
+    return acc;
+}, {} as Record<string, typeof productsData>);
+
+// The first slider is the main banner, the rest in the array could be banner images for categories
+const mainSliders = vttData.sliders.filter(src => src.includes('slider') || src.includes('banner/untitled') || !src.includes('banner-danh-muc'));
+const categoryBanners = vttData.sliders.filter(src => src.includes('banner-danh-muc'));
+
+const slugify = (text: string) => text.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/\s+/g, '-').replace(/[^\w\-]+/g, '');
 ---
 
-<Layout>
-	<Welcome />
-</Layout>
+<BaseLayout>
+    <!-- Hero Slider (Responsive, matching original styling structure) -->
+    <section class="w-full relative overflow-hidden bg-slate-100">
+        <div class="flex overflow-x-auto snap-x snap-mandatory scrollbar-hide w-full" style="scroll-behavior: smooth;">
+            {mainSliders.length > 0 ? mainSliders.map((slide, i) => (
+                <div class="w-full shrink-0 snap-center relative block aspect-[21/9] md:aspect-[3/1]">
+                    <Image 
+                        src={slide}
+                        alt={`Banner Khuyến Mãi ${i+1}`}
+                        width={1920}
+                        height={600}
+                        class="w-full h-full object-cover"
+                        loading={i === 0 ? "eager" : "lazy"}
+                    />
+                </div>
+            )) : (
+                <div class="w-full shrink-0 snap-center relative block aspect-[21/9] md:aspect-[3/1]">
+                    <Image 
+                        src="https://bizweb.dktcdn.net/100/424/302/themes/904494/assets/slider_2.jpg?1724298150346" 
+                        alt="Banner Khuyến Mãi"
+                        width={1920}
+                        height={600}
+                        class="w-full h-full object-cover"
+                        loading="eager"
+                    />
+                </div>
+            )}
+        </div>
+    </section>
+
+    <!-- Categories Section (Scraped Banner Danh Mục) -->
+    {categoryBanners.length > 0 && (
+    <section class="max-w-6xl mx-auto px-4 w-full mt-6 mb-8 lg:mt-10 lg:mb-12">
+        <h2 class="bg-slate-900 text-white text-center py-2 md:py-3 text-[16px] md:text-xl font-medium tracking-wide border-b-2 border-primary-500 uppercase">
+            Danh mục nổi bật
+        </h2>
+        <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-2 md:gap-4 mt-4">
+            {categoryBanners.map((img) => {
+                // Extract name from URL for basic mapping (e.g. 1-pickleball_thumb_350.webp)
+                const nameMatch = img.match(/-([a-zA-Z-]+)_thumb/);
+                const title = nameMatch ? nameMatch[1].replace(/-/g, ' ').toUpperCase() : "Danh mục";
+                return (
+                    <a href={`/danh-muc/${title.toLowerCase().replace(/\s+/g,'-')}`} class="relative block rounded overflow-hidden group aspect-[4/5] bg-white border border-slate-100 hover:shadow-md transition-shadow">
+                        <Image 
+                            src={img} 
+                            alt={title} 
+                            width={350} 
+                            height={450}
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        />
+                    </a>
+                )
+            })}
+        </div>
+    </section>
+    )}
+
+    <!-- Products Grid Sections -->
+    <div class="w-full max-w-[1240px] mx-auto px-4 pb-12 lg:pb-16 flex flex-col gap-10 md:gap-14 lg:gap-16 mt-6">
+        {categories.map((category) => (
+            <section id={slugify(category)} class="scroll-mt-32">
+                <div class="flex items-center justify-between bg-slate-900 text-white px-4 py-2 md:py-3 mb-4 md:mb-6 border-l-4 border-primary-500">
+                    <h2 class="text-[16px] md:text-xl font-bold tracking-wide uppercase m-0">
+                        {category}
+                    </h2>
+                    <a href={`/danh-muc/${slugify(category)}`} class="text-sm font-medium hover:text-primary-500 transition-colors hidden sm:block">
+                        Xem tất cả &gt;&gt;
+                    </a>
+                </div>
+
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-2 md:gap-4">
+                    {productsByCategory[category].slice(0, 10).map((product) => (
+                        <ProductCard product={product} />
+                    ))}
+                </div>
+                
+                <div class="mt-6 md:mt-8 text-center sm:hidden">
+                    <a href={`/danh-muc/${slugify(category)}`} class="inline-flex items-center gap-1 bg-white border border-primary-500 text-primary-500 font-bold text-sm py-2 px-6 rounded transition-colors shadow-sm active:bg-primary-50">
+                        Xem tất cả
+                    </a>
+                </div>
+            </section>
+        ))}
+    </div>
+</BaseLayout>
+
+<style>
+    /* Hide scrollbar for slider */
+    .scrollbar-hide::-webkit-scrollbar {
+        display: none;
+    }
+    .scrollbar-hide {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+</style>

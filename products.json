@@ -1,0 +1,173 @@
+[
+    {
+        "id": "PB001",
+        "name": "Vợt Pickleball Joola Ben Johns Perseus",
+        "category": "Pickleball",
+        "price": "5.500.000đ",
+        "originalPrice": "6.000.000đ",
+        "image": "https://placehold.co/400x400/2563eb/ffffff.webp?text=Vot+Pickleball+Joola",
+        "description": "Vợt chuẩn thi đấu, bề mặt Carbon ma sát cao, kiểm soát bóng tối ưu."
+    },
+    {
+        "id": "PB002",
+        "name": "Bóng Pickleball Franklin X-40 (Hộp 3 quả)",
+        "category": "Pickleball",
+        "price": "250.000đ",
+        "originalPrice": "",
+        "image": "https://placehold.co/400x400/f59e0b/ffffff.webp?text=Bong+Franklin+X40",
+        "description": "Bóng thi đấu ngoài trời chính thức của giải US Open."
+    },
+    {
+        "id": "PB003",
+        "name": "Lưới Pickleball Di Động Tập Luyện",
+        "category": "Pickleball",
+        "price": "1.200.000đ",
+        "originalPrice": "1.500.000đ",
+        "image": "https://placehold.co/400x400/10b981/ffffff.webp?text=Luoi+Pickleball",
+        "description": "Lưới tiêu chuẩn, khung thép chống gỉ, dễ dàng tháo lắp."
+    },
+    {
+        "id": "CL001",
+        "name": "Vợt Cầu Lông Yonex Astrox 99 Pro",
+        "category": "Cầu Lông",
+        "price": "4.200.000đ",
+        "originalPrice": "4.500.000đ",
+        "image": "https://placehold.co/400x400/ef4444/ffffff.webp?text=Yonex+Astrox+99",
+        "description": "Vợt thiên công, nặng đầu, dành cho người chơi chuyên nghiệp."
+    },
+    {
+        "id": "CL002",
+        "name": "Vợt Cầu Lông Lining Halbertec 8000",
+        "category": "Cầu Lông",
+        "price": "3.800.000đ",
+        "originalPrice": "",
+        "image": "https://placehold.co/400x400/8b5cf6/ffffff.webp?text=Lining+Halbertec",
+        "description": "Công thủ toàn diện, trợ lực tốt, khung siêu bền."
+    },
+    {
+        "id": "CL003",
+        "name": "Giày Cầu Lông Yonex SHB 65Z3",
+        "category": "Cầu Lông",
+        "price": "2.500.000đ",
+        "originalPrice": "2.800.000đ",
+        "image": "https://placehold.co/400x400/ec4899/ffffff.webp?text=Giay+Yonex+65Z3",
+        "description": "Đế đệm Power Cushion siêu êm, bám sân cực tốt."
+    },
+    {
+        "id": "CL004",
+        "name": "Ống Cầu Lông Thành Công (Loại 1)",
+        "category": "Cầu Lông",
+        "price": "210.000đ",
+        "originalPrice": "",
+        "image": "https://placehold.co/400x400/64748b/ffffff.webp?text=Cau+Thanh+Cong",
+        "description": "Cầu bay đầm, độ bền cao, phù hợp đánh phong trào và thi đấu."
+    },
+    {
+        "id": "BD001",
+        "name": "Quả Bóng Đá Động Lực UHV 2.07",
+        "category": "Bóng Đá",
+        "price": "1.150.000đ",
+        "originalPrice": "1.300.000đ",
+        "image": "https://placehold.co/400x400/14b8a6/ffffff.webp?text=Bong+Dong+Luc",
+        "description": "Bóng thi đấu chính thức V-League, đạt chuẩn FIFA Quality PRO."
+    },
+    {
+        "id": "BD002",
+        "name": "Giày Đá Bóng Kamito TA11 (Sân Cỏ Nhân Tạo)",
+        "category": "Bóng Đá",
+        "price": "650.000đ",
+        "originalPrice": "790.000đ",
+        "image": "https://placehold.co/400x400/f97316/ffffff.webp?text=Giay+Kamito+TA11",
+        "description": "Giày đinh dăm TF bám sân, da mềm, form bè phù hợp chân người Việt."
+    },
+    {
+        "id": "BD003",
+        "name": "Găng Tay Thủ Môn Predator Pro",
+        "category": "Bóng Đá",
+        "price": "850.000đ",
+        "originalPrice": "1.000.000đ",
+        "image": "https://placehold.co/400x400/3b82f6/ffffff.webp?text=Gang+Tay+Predator",
+        "description": "Mút latex dày 4mm dính bóng cực tốt, có xương bảo vệ ngón."
+    },
+    {
+        "id": "MT001",
+        "name": "Máy Chạy Bộ Đa Năng Hoàng Hà H-900",
+        "category": "Máy Tập",
+        "price": "12.500.000đ",
+        "originalPrice": "15.000.000đ",
+        "image": "https://placehold.co/400x400/0f766e/ffffff.webp?text=May+Chay+Bo",
+        "description": "Động cơ 3.0HP mạnh mẽ, nâng dốc tự động, bảo hành motor 5 năm."
+    },
+    {
+        "id": "MT002",
+        "name": "Xe Đạp Tập Thể Dục Tại Nhà Spin Bike",
+        "category": "Máy Tập",
+        "price": "3.200.000đ",
+        "originalPrice": "4.000.000đ",
+        "image": "https://placehold.co/400x400/be123c/ffffff.webp?text=Xe+Dap+Tap",
+        "description": "Kháng lực từ tính siêu êm, màn hình hiển thị nhịp tim, calo."
+    },
+    {
+        "id": "MT003",
+        "name": "Giàn Tạ Đa Năng Xuki Trọng Lượng 50kg",
+        "category": "Máy Tập",
+        "price": "2.800.000đ",
+        "originalPrice": "",
+        "image": "https://placehold.co/400x400/4338ca/ffffff.webp?text=Gian+Ta+Da+Nang",
+        "description": "Tích hợp kéo xô, đẩy ngực, ép ngực. Thép hộp dày chịu lực tốt."
+    },
+    {
+        "id": "BB001",
+        "name": "Bàn Bóng Bàn Song Ngư 323",
+        "category": "Bóng Bàn",
+        "price": "7.500.000đ",
+        "originalPrice": "8.200.000đ",
+        "image": "https://placehold.co/400x400/c2410c/ffffff.webp?text=Ban+Song+Ngu+323",
+        "description": "Mặt bàn MDF 18mm chống lóa chuẩn ITTF, chân thép gập gọn."
+    },
+    {
+        "id": "BB002",
+        "name": "Vợt Bóng Bàn Butterfly Viscaria",
+        "category": "Bóng Bàn",
+        "price": "3.500.000đ",
+        "originalPrice": "",
+        "image": "https://placehold.co/400x400/b91c1c/ffffff.webp?text=Vot+Viscaria",
+        "description": "Cốt vợt Carbon trợ lực, phù hợp lối đánh tấn công nhanh."
+    },
+    {
+        "id": "BR001",
+        "name": "Quả Bóng Rổ Spalding NBA Size 7",
+        "category": "Bóng Rổ - Bóng Chuyền",
+        "price": "450.000đ",
+        "originalPrice": "550.000đ",
+        "image": "https://placehold.co/400x400/eab308/ffffff.webp?text=Bong+Ro+Spalding",
+        "description": "Da PU bám tay, độ nảy chuẩn, dùng tốt cho cả sân Indoor và Outdoor."
+    },
+    {
+        "id": "BR002",
+        "name": "Quả Bóng Chuyền Động Lực Hunter",
+        "category": "Bóng Rổ - Bóng Chuyền",
+        "price": "380.000đ",
+        "originalPrice": "",
+        "image": "https://placehold.co/400x400/1d4ed8/ffffff.webp?text=Bong+Chuyen+Hunter",
+        "description": "Da mềm, đường may chắc chắn, tiêu chuẩn thi đấu quốc gia."
+    },
+    {
+        "id": "PK001",
+        "name": "Bó Gối Thể Thao PJ Bảo Vệ Dây Chằng",
+        "category": "Thời Trang & Phụ Kiện",
+        "price": "120.000đ",
+        "originalPrice": "150.000đ",
+        "image": "https://placehold.co/400x400/334155/ffffff.webp?text=Bo+Goi+The+Thao",
+        "description": "Chất liệu dệt kim co giãn 4 chiều, hỗ trợ giảm chấn thương khớp gối."
+    },
+    {
+        "id": "PK002",
+        "name": "Balo Thể Thao Đựng Vợt/Giày Chống Nước",
+        "category": "Thời Trang & Phụ Kiện",
+        "price": "350.000đ",
+        "originalPrice": "450.000đ",
+        "image": "https://placehold.co/400x400/0f172a/ffffff.webp?text=Balo+The+Thao",
+        "description": "Có ngăn để giày riêng biệt có lỗ thông hơi, chất vải dù chống thấm."
+    }
+]

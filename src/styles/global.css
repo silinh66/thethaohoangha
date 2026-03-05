@@ -1,0 +1,41 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary-500: #d82d2d;
+  /* Primary Red */
+  --color-primary-600: #c22828;
+  /* Darker Red */
+  --color-primary-700: #a32222;
+  /* Even Darker Red */
+
+  --color-secondary-500: #112136;
+  /* Dark Navy for top bar */
+  --color-secondary-600: #0a1421;
+  /* Dark Navy hover */
+
+  --color-zalo: #0084ff;
+  /* Zalo Blue */
+
+  --font-sans: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer utilities {
+  .marquee-content {
+    animation: marquee 20s linear infinite;
+  }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(100%);
+  }
+
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+html,
+body {
+  @apply text-slate-900 bg-white font-sans antialiased;
+}

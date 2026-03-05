@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://thethaohoangha.com/sitemap-index.xml

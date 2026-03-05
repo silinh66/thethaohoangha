@@ -1,0 +1,101 @@
+{
+  "menuItems": [
+    {
+      "name": "Trang chủ",
+      "link": "/",
+      "subItems": []
+    },
+    {
+      "name": "Giới thiệu",
+      "link": "/gioi-thieu",
+      "subItems": []
+    },
+    {
+      "name": "Liên hệ",
+      "link": "/lien-he",
+      "subItems": []
+    },
+    {
+      "name": "Tennis",
+      "link": "/san-pham",
+      "subItems": [
+        {
+          "name": "Vợt Tennis",
+          "link": "/san-pham/vot-tennis.html"
+        },
+        {
+          "name": "Giầy Tennis",
+          "link": "/san-pham/giay-tennis.html"
+        },
+        {
+          "name": "Túi vợt Tennis",
+          "link": "/san-pham/tui-vot-tennis.html"
+        },
+        {
+          "name": "Quần áo & mũ Tennis",
+          "link": "/san-pham/quan-ao-mu-tennis.html"
+        },
+        {
+          "name": "Phụ kiện Tennis",
+          "link": "/san-pham/phu-kien-tennis.html"
+        }
+      ]
+    },
+    {
+      "name": "Cầu Lông",
+      "link": "/san-pham",
+      "subItems": [
+        {
+          "name": "Vợt cầu lông",
+          "link": "/san-pham/vot-cau-long.html"
+        },
+        {
+          "name": "Balo, phụ kiện cầu lông",
+          "link": "/san-pham/balo-phu-kien-cau-long.html"
+        },
+        {
+          "name": "Giầy Cầu Lông",
+          "link": "/san-pham/giay-cau-long"
+        }
+      ]
+    },
+    {
+      "name": "PICKLEBALL",
+      "link": "/san-pham/pickle-ball",
+      "subItems": [
+        {
+          "name": "Vợt PickleBall",
+          "link": "/san-pham/pickle-ball"
+        },
+        {
+          "name": "Giày Pickleball",
+          "link": "/san-pham/giay-pickleball"
+        },
+        {
+          "name": "PHỤ KIỆN, LƯỚI, MŨ, BALO PICKLEBALL",
+          "link": "/san-pham/phu-kien-luoi-mu-balo-pickleball"
+        },
+        {
+          "name": "Bao vợt pickleball",
+          "link": "/san-pham/bao-vot-pickleball"
+        },
+        {
+          "name": "Trang Phục",
+          "link": "/san-pham/apparel"
+        }
+      ]
+    }
+  ],
+  "sliders": [
+    "https://cdn7134.cdn4s8.io.vn/media/banner/untitled-1.jpg",
+    "https://cdn7134.cdn4s8.io.vn/thumbs/banner/banner-danh-muc/1-pickleball_thumb_350.webp",
+    "https://cdn7134.cdn4s8.io.vn/thumbs/banner/banner-danh-muc/2-tennis_thumb_350.webp",
+    "https://cdn7134.cdn4s8.io.vn/thumbs/banner/banner-danh-muc/3-badminton_thumb_350.webp",
+    "https://cdn7134.cdn4s8.io.vn/thumbs/banner/banner-danh-muc/4-apparel_thumb_350.webp",
+    "https://cdn7134.cdn4s8.io.vn/thumbs/banner/banner-danh-muc/5-balls_thumb_350.webp",
+    "https://cdn7134.cdn4s8.io.vn/thumbs/banner/banner-danh-muc/6-phu-kien_thumb_350.webp",
+    "https://cdn7134.cdn4s8.io.vn/thumbs/banner/banner-danh-muc/7-giay_thumb_350.webp"
+  ],
+  "categories": [],
+  "products": []
+}

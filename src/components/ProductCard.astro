@@ -1,0 +1,63 @@
+---
+import { Image } from 'astro:assets';
+
+interface Props {
+  product: {
+    id: string;
+    name: string;
+    category: string;
+    price: string;
+    originalPrice?: string;
+    image: string;
+    description: string;
+  };
+}
+
+const { product } = Astro.props;
+const zaloLink = `https://zalo.me/0964534299?text=Tôi+cần+mua+${encodeURIComponent(product.name)}`;
+---
+
+<div class="group bg-white rounded flex flex-col h-full relative cursor-pointer hover:shadow-lg transition-shadow duration-300 block border border-transparent hover:border-slate-200">
+    <a href={`/san-pham/${product.id}`} class="absolute inset-0 z-10 block opacity-0">View</a>
+    
+    <!-- Image -->
+    <div class="relative w-full aspect-square bg-white flex-shrink-0">
+        <Image 
+            src={product.image} 
+            alt={product.name}
+            width={400} 
+            height={400}
+            class="w-full h-full object-contain p-2"
+            loading="lazy"
+        />
+        {product.originalPrice && (
+            <div class="absolute top-2 left-2 bg-primary-500 text-white text-[10px] font-bold px-1.5 py-0.5 uppercase z-20">
+                Sale
+            </div>
+        )}
+    </div>
+
+    <!-- Content -->
+    <div class="p-3 flex flex-col flex-grow items-center text-center">
+        <!-- Name -->
+        <h3 class="text-[13px] sm:text-sm font-medium text-slate-800 leading-snug mb-1 line-clamp-2 max-h-[2.6rem] group-hover:text-primary-500 transition-colors">
+            {product.name}
+        </h3>
+
+        <!-- Price -->
+        <div class="mt-auto flex items-center justify-center gap-2 mb-3">
+            <span class="text-sm md:text-base font-bold text-primary-500">{product.price}</span>
+            {product.originalPrice && (
+                <del class="text-[11px] text-slate-400 font-medium">{product.originalPrice}</del>
+            )}
+        </div>
+        
+        <!-- Cart Action Fake / Real Action is Zalo inside detail page. But keeping a mini Zalo button here is also neat -->
+        <a href={zaloLink} 
+           target="_blank" 
+           rel="noopener noreferrer"
+           class="inline-flex z-20 items-center justify-center bg-transparent border border-zalo hover:bg-zalo text-zalo hover:text-white text-xs font-bold py-1.5 px-3 rounded-full transition-colors w-max mx-auto shadow-sm">
+            Tư vấn
+        </a>
+    </div>
+</div>
