@@ -5,11 +5,12 @@ interface Props {
   product: {
     id: string;
     name: string;
-    category: string;
-    price: string;
-    originalPrice?: string;
+    brand?: string;
+    price: number | string;
+    originalPrice?: number | string;
     image: string;
     description: string;
+    subCategorySlugs?: string[];
   };
 }
 
@@ -46,9 +47,9 @@ const zaloLink = `https://zalo.me/0964534299?text=Tôi+cần+mua+${encodeURIComp
 
         <!-- Price -->
         <div class="mt-auto flex items-center justify-center gap-2 mb-3">
-            <span class="text-sm md:text-base font-bold text-primary-500">{product.price}</span>
-            {product.originalPrice && (
-                <del class="text-[11px] text-slate-400 font-medium">{product.originalPrice}</del>
+            <span class="text-sm md:text-base font-bold text-primary-500">{typeof product.price === 'number' ? product.price.toLocaleString('vi-VN') + '₫' : product.price}</span>
+            {product.originalPrice && product.originalPrice !== product.price && (
+                <del class="text-[11px] text-slate-400 font-medium">{typeof product.originalPrice === 'number' ? product.originalPrice.toLocaleString('vi-VN') + '₫' : product.originalPrice}</del>
             )}
         </div>
         

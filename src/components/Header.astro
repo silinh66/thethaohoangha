@@ -68,26 +68,49 @@ const navItems = vttData.menuItems;
     </div>
 
     <!-- Navigation Menu (Desktop) -->
-    <nav class="hidden lg:block bg-secondary-500 relative">
-        <ul class="container mx-auto px-4 flex justify-between items-center py-0">
-            {navItems.map((item) => (
-                <li class="group relative">
+    <nav class="hidden lg:block bg-secondary-500">
+        <ul class="container mx-auto px-4 flex justify-between items-center py-0 relative">
+            {navItems.map((item, index) => (
+                <li class={`group ${item.subGroups && item.subGroups.length > 0 ? '' : 'relative'}`}>
                     <a href={item.link} data-astro-prefetch="hover" class="block py-3 text-[14px] font-semibold text-white hover:text-primary-500 transition-colors uppercase tracking-wide flex items-center gap-1">
                         {item.name}
-                        {item.subItems && item.subItems.length > 0 && (
+                        {((item.subItems && item.subItems.length > 0) || (item.subGroups && item.subGroups.length > 0)) && (
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                             </svg>
                         )}
                     </a>
                     
-                    <!-- Mega Menu Content -->
+                    <!-- Mega Menu Content (subGroups) -->
+                    {item.subGroups && item.subGroups.length > 0 && (
+                        <div class={`absolute top-full bg-white border border-slate-200 shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 z-50 rounded-b p-6 cursor-default
+                             ${item.name === 'NAM' || item.name === 'NỮ' || item.name === 'THƯƠNG HIỆU' ? '-ml-[300px] w-screen max-w-5xl left-1/2 -translate-x-1/2' : 'left-0 w-max min-w-[300px]'}`}>
+                            <div class="flex flex-wrap gap-8 justify-between">
+                                {item.subGroups.map((group: any) => (
+                                    <div class="flex-1 min-w-[160px]">
+                                        {group.groupName && <h4 class="font-bold text-slate-900 mb-3 text-[15px] border-b border-primary-100 pb-2">{group.groupName}</h4>}
+                                        <ul class="flex flex-col gap-2">
+                                            {group.items.map((subItem: any) => (
+                                                <li>
+                                                    <a href={subItem.link} data-astro-prefetch="hover" class="text-[14px] text-slate-600 hover:text-primary-500 transition-colors block">
+                                                        {subItem.name}
+                                                    </a>
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    )}
+
+                    <!-- Simple Dropdown Content -->
                     {item.subItems && item.subItems.length > 0 && (
                         <div class="absolute top-full left-0 w-[240px] bg-white border border-slate-200 shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 z-50 rounded-b">
                             <ul class="py-2">
-                                {item.subItems.map((subItem) => (
+                                {item.subItems.map((subItem: any) => (
                                     <li>
-                                        <a href={subItem.link} data-astro-prefetch="hover" class="block px-4 py-2 text-sm text-slate-700 hover:text-primary-500 hover:bg-slate-50 transition-colors">
+                                        <a href={subItem.link} data-astro-prefetch="hover" class="block px-4 py-2 text-[14px] text-slate-700 hover:text-primary-500 hover:bg-slate-50 transition-colors">
                                             {subItem.name}
                                         </a>
                                     </li>
@@ -140,7 +163,7 @@ const navItems = vttData.menuItems;
                             <a href={item.link} data-astro-prefetch="hover" class="block py-3 text-sm font-semibold text-slate-800 uppercase flex-grow">
                                 {item.name}
                             </a>
-                            {item.subItems && item.subItems.length > 0 && (
+                            {((item.subItems && item.subItems.length > 0) || (item.subGroups && item.subGroups.length > 0)) && (
                                 <button class="p-2 text-slate-400 mobile-submenu-toggle" data-target={`submenu-${index}`}>
                                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
@@ -149,9 +172,28 @@ const navItems = vttData.menuItems;
                             )}
                         </div>
                         
+                        {item.subGroups && item.subGroups.length > 0 && (
+                            <ul id={`submenu-${index}`} class="hidden pl-2 pb-2 border-l-2 border-slate-100 ml-2 mt-1 flex-col gap-4">
+                                {item.subGroups.map((group: any) => (
+                                    <li>
+                                        {group.groupName && <div class="font-bold text-slate-800 text-[14px] mb-2">{group.groupName}</div>}
+                                        <ul class="flex flex-col gap-1 pl-2">
+                                            {group.items.map((subItem: any) => (
+                                                <li>
+                                                    <a href={subItem.link} data-astro-prefetch="hover" class="block py-1.5 text-[14px] text-slate-600 hover:text-primary-500">
+                                                        {subItem.name}
+                                                    </a>
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    </li>
+                                ))}
+                            </ul>
+                        )}
+
                         {item.subItems && item.subItems.length > 0 && (
                             <ul id={`submenu-${index}`} class="hidden pl-4 pb-2 border-l-2 border-slate-100 ml-2 mt-1 flex-col gap-2">
-                                {item.subItems.map((subItem) => (
+                                {item.subItems.map((subItem: any) => (
                                     <li>
                                         <a href={subItem.link} data-astro-prefetch="hover" class="block py-2 text-sm text-slate-600 hover:text-primary-500">
                                             {subItem.name}

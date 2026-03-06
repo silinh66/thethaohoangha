@@ -5,10 +5,12 @@ import productsData from '../data/products.json';
 import vttData from '../data/vtt_structured.json';
 import { Image } from 'astro:assets';
 
-// Use categories from productsData but map them safely.
-const categories = Array.from(new Set(productsData.map(p => p.category)));
-const productsByCategory = categories.reduce((acc, category) => {
-    acc[category] = productsData.filter(p => p.category === category);
+// Extract Top Brands to showcase on Homepage (Since "category" is obsolete)
+const brands = Array.from(new Set(productsData.map(p => p.brand).filter(b => b && b !== 'Maxxsport')));
+const topBrands = brands.slice(0, 5); // Show top 5 brands
+
+const productsByBrand = topBrands.reduce((acc, brand) => {
+    acc[brand] = productsData.filter(p => p.brand === brand);
     return acc;
 }, {} as Record<string, typeof productsData>);
 
@@ -61,7 +63,7 @@ const slugify = (text: string) => text.toLowerCase().normalize("NFD").replace(/[
                 const nameMatch = img.match(/-([a-zA-Z-]+)_thumb/);
                 const title = nameMatch ? nameMatch[1].replace(/-/g, ' ').toUpperCase() : "Danh mục";
                 return (
-                    <a href={`/danh-muc/${title.toLowerCase().replace(/\s+/g,'-')}`} class="relative block rounded overflow-hidden group aspect-[4/5] bg-white border border-slate-100 hover:shadow-md transition-shadow">
+                    <a href={`/chuyen-muc/${title.toLowerCase().replace(/\s+/g,'-')}`} class="relative block rounded overflow-hidden group aspect-[4/5] bg-white border border-slate-100 hover:shadow-md transition-shadow">
                         <Image 
                             src={img} 
                             alt={title} 
@@ -76,27 +78,26 @@ const slugify = (text: string) => text.toLowerCase().normalize("NFD").replace(/[
     </section>
     )}
 
-    <!-- Products Grid Sections -->
     <div class="w-full max-w-[1240px] mx-auto px-4 pb-12 lg:pb-16 flex flex-col gap-10 md:gap-14 lg:gap-16 mt-6">
-        {categories.map((category) => (
-            <section id={slugify(category)} class="scroll-mt-32">
+        {topBrands.map((brand) => (
+            <section id={slugify(brand)} class="scroll-mt-32">
                 <div class="flex items-center justify-between bg-slate-900 text-white px-4 py-2 md:py-3 mb-4 md:mb-6 border-l-4 border-primary-500">
                     <h2 class="text-[16px] md:text-xl font-bold tracking-wide uppercase m-0">
-                        {category}
+                        Thương hiệu {brand}
                     </h2>
-                    <a href={`/danh-muc/${slugify(category)}`} class="text-sm font-medium hover:text-primary-500 transition-colors hidden sm:block">
+                    <a href={`/chuyen-muc/${slugify(brand)}`} class="text-sm font-medium hover:text-primary-500 transition-colors hidden sm:block">
                         Xem tất cả &gt;&gt;
                     </a>
                 </div>
 
                 <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-2 md:gap-4">
-                    {productsByCategory[category].slice(0, 10).map((product) => (
+                    {productsByBrand[brand].slice(0, 10).map((product) => (
                         <ProductCard product={product} />
                     ))}
                 </div>
                 
                 <div class="mt-6 md:mt-8 text-center sm:hidden">
-                    <a href={`/danh-muc/${slugify(category)}`} class="inline-flex items-center gap-1 bg-white border border-primary-500 text-primary-500 font-bold text-sm py-2 px-6 rounded transition-colors shadow-sm active:bg-primary-50">
+                    <a href={`/chuyen-muc/${slugify(brand)}`} class="inline-flex items-center gap-1 bg-white border border-primary-500 text-primary-500 font-bold text-sm py-2 px-6 rounded transition-colors shadow-sm active:bg-primary-50">
                         Xem tất cả
                     </a>
                 </div>

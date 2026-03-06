@@ -10,15 +10,16 @@ interface Props {
 }
 
 const { 
-  title = "Thể thao Hoàng Hà", 
-  description = "Chuyên bán buôn, bán lẻ dụng cụ thể thao, máy tập, vợt cầu lông, bóng đá, bóng bàn chính hãng tại Hải Dương. Giá sỉ tốt nhất, bảo hành tận nơi." 
+  title = "Thể Thao Hoàng Hà - Chuyên Đồ Thể Thao Chính Hãng", 
+  description = "Thể thao Hoàng Hà chuyên bán buôn, bán lẻ dụng cụ thể thao, máy tập, vợt cầu lông, bóng đá, bóng bàn chính hãng giá sỉ tốt nhất tại Hải Dương. Bảo hành tận nơi.",
+  image = "/favicon.png",
 } = Astro.props;
 
 const schemaMarkup = {
   "@context": "https://schema.org",
   "@type": "SportsStore",
   "name": "Thể thao Hoàng Hà",
-  "image": "https://placehold.co/600x400/e11d48/ffffff.webp?text=The+Thao+Hoang+Ha",
+  "image": "https://thethaohoangha.com/favicon.png",
   "description": "Tổng kho bán buôn, bán lẻ dụng cụ thể thao uy tín số 1 tại Hải Dương.",
   "address": {
     "@type": "PostalAddress",
@@ -43,15 +44,27 @@ const schemaMarkup = {
         <!-- SEO Metadata -->
 		<title>{title}</title>
         <meta name="description" content={description} />
-        <meta name="robots" content="index, follow" />
+        <meta name="author" content="Thể Thao Hoàng Hà">
+        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
         <link rel="canonical" href={Astro.site} />
 
-        <!-- Open Graph -->
+        <!-- Open Graph / Facebook / Zalo / Telegram -->
+        <meta property="og:type" content="website" />
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
-        <meta property="og:type" content="website" />
         <meta property="og:url" content={Astro.site} />
-        <meta property="og:image" content="https://placehold.co/1200x630/e11d48/ffffff.webp?text=The+Thao+Hoang+Ha" />
+        <meta property="og:site_name" content="Thể Thao Hoàng Hà" />
+        <meta property="og:image" content={new URL(image, Astro.site)} />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content="Thể Thao Hoàng Hà" />
+        <meta property="og:locale" content="vi_VN" />
+
+        <!-- Twitter -->
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={title} />
+        <meta name="twitter:description" content={description} />
+        <meta name="twitter:image" content={new URL(image, Astro.site)} />
 
         <!-- Schema Markup -->
         <script type="application/ld+json" set:html={JSON.stringify(schemaMarkup)} />
@@ -61,6 +74,9 @@ const schemaMarkup = {
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
         
+        <!-- Alpine.js (Client-side rendering & reactivity) -->
+        <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
         <!-- Crisp Chat -->
         <script type="text/javascript">window.$crisp=[];window.CRISP_WEBSITE_ID="127adc7d-0ff9-4721-a273-28eb4aba9868";$crisp.push(["set", "session:data", [[[ "language", "vi" ]]]]);$crisp.push(["safe", true]);(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script>
 	</head>
@@ -73,5 +89,26 @@ const schemaMarkup = {
 
         <Footer />
         <FloatingButtons />
+
+        <!-- Firebase Analytics -->
+        <script type="module">
+          import { initializeApp } from "https://www.gstatic.com/firebasejs/12.10.0/firebase-app.js";
+          import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.10.0/firebase-analytics.js";
+
+          // Your web app's Firebase configuration
+          const firebaseConfig = {
+            apiKey: "AIzaSyCzTTripTl-dZgFN3hijkQOGJ2_CyE8ErI",
+            authDomain: "thethaohoangha-site.firebaseapp.com",
+            projectId: "thethaohoangha-site",
+            storageBucket: "thethaohoangha-site.firebasestorage.app",
+            messagingSenderId: "611899096243",
+            appId: "1:611899096243:web:a5522705f2bf45895384c6",
+            measurementId: "G-HD9101039L"
+          };
+
+          // Initialize Firebase
+          const app = initializeApp(firebaseConfig);
+          const analytics = getAnalytics(app);
+        </script>
 	</body>
 </html>
